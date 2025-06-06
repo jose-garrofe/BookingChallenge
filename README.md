@@ -1,49 +1,47 @@
-# Booking API Test Suite
+# Booking API
 
-## Overview
-The Booking project is designed to facilitate API testing for the Booking application. This repository contains test cases that validate the functionality and performance of the Booking API.
+Proyecto de ejemplo para gestión de reservas (Booking) con autenticación y tests automatizados.
 
-## Project Structure
+## Especificaciones del Proyecto
+
+- **Backend:** Node.js + Express (API RESTful)
+- **Tests:** Jest + Supertest (automatizados)
+- **Autenticación:** Token recibido por `/auth` y enviado como cookie en los endpoints protegidos
+- **Endpoints principales:**
+  - `POST /auth` — Obtiene token de autenticación
+  - `POST /booking` — Crea una nueva reserva
+  - `PUT /booking/:id` — Actualiza una reserva existente
+  - `GET /booking` — Devuelve un listado de todas las reservas
+  - `GET /booking/:id` — Obtiene una reserva por ID
+  - `DELETE /booking/:id` — Elimina una reserva por ID
+
+## Instalación
+
+Se deben seguir las indicaciones detalladas en el ReadMe del siguiente repositorio: https://github.com/mwinteringham/restful-booker
+
+## Ejecución
+
+### Iniciar el servidor
+
+```sh
+npm start
 ```
-Booking
-├── src
-│   └── tests
-│       └── booking.test.ts
-├── package.json
-├── tsconfig.json
-└── README.md
-```
+El servidor correrá por defecto en [http://localhost:3001](http://localhost:3001).
 
-## Setup Instructions
-1. **Clone the repository:**
-   ```
-   git clone <repository-url>
-   cd Booking
-   ```
+### Ejecutar los tests
 
-2. **Install dependencies:**
-   Ensure you have Node.js installed, then run:
-   ```
-   npm install
-   ```
-
-3. **Compile TypeScript:**
-   To compile the TypeScript files, run:
-   ```
-   npx tsc
-   ```
-
-## Running Tests
-To execute the API tests, use the following command:
-```
+```sh
 npm test
 ```
 
-## Usage
-The test cases are defined in `src/tests/booking.test.ts`. You can modify or add new test scenarios as needed.
+Esto ejecutará todos los tests automatizados ubicados en `src/tests/`.
 
-## Contributing
-Contributions are welcome! Please submit a pull request for any enhancements or bug fixes.
+## Notas
 
-## License
-This project is licensed under the MIT License.
+- Asegúrate de que el servidor esté corriendo antes de ejecutar los tests.
+- Los tests requieren que el endpoint `/auth` esté disponible y que las credenciales por defecto sean:
+  - Usuario: `admin`
+  - Contraseña: `password123`
+- El token de autenticación se envía como cookie en los endpoints protegidos.
+
+---
